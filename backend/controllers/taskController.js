@@ -18,7 +18,7 @@ const setTask = asyncHandler(async (req, res) => {
   res.status(200).json(task);
 });
 
-// POST
+// PUT
 const updateTask = asyncHandler(async (req, res, next) => {
   const taskId = req.params.id;
 
