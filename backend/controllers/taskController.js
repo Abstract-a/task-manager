@@ -2,11 +2,13 @@ const asyncHandler = require('express-async-handler');
 const Task = require('../models/taskModel');
 const mongoose = require('mongoose');
 
+// GET
 const getTasks = asyncHandler(async (req, res) => {
   const tasks = await Task.find();
   res.status(200).json(tasks);
 });
 
+// POST
 const setTask = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
@@ -16,6 +18,7 @@ const setTask = asyncHandler(async (req, res) => {
   res.status(200).json(task);
 });
 
+// POST
 const updateTask = asyncHandler(async (req, res, next) => {
   const taskId = req.params.id;
 
@@ -37,6 +40,7 @@ const updateTask = asyncHandler(async (req, res, next) => {
   res.status(200).json(updatedTask);
 });
 
+// DELETE
 const deleteTask = asyncHandler(async (req, res) => {
   const taskId = req.params.id;
 
