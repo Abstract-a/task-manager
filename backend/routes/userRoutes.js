@@ -6,6 +6,7 @@ const {
   loginUser,
   getCurrentUser,
 } = require('../controllers/userController');
+
 router.post('/', registerUser);
 router.post('/login', loginUser);
 router.get('/current', protect, getCurrentUser);
