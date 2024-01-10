@@ -57,7 +57,8 @@ const loginUser = asyncHandler(async (req, res) => {
 });
 
 const getCurrentUser = asyncHandler(async (req, res) => {
-  res.json({ message: 'Current user data' });
+  const { _id, name, email } = await User.findById(req.user.id);
+  res.status(200).json({ id: _id, name, email });
 });
 // generating a JWT token that we then pass to the user when the login or the registring is successful thus authenticating the user
 const generateJWTtoken = (id) =>
